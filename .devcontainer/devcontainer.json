@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+{
+	// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+	"name": "Elixir dev container",
+
+	// Sets the run context to one level up instead of the .devcontainer folder.
+	"context": ".",
+
+	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	"dockerFile": "Dockerfile",
+
+	// The optional 'runArgs' property can be used to specify additional runtime arguments.
+	"runArgs": [
+		// "--rm",
+
+		// SSH configuration
+		"-v", "${env:HOME}${env:USERPROFILE}/.ssh:/home/ex/.ssh-localhost:ro",
+		
+		// Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-in-docker for details.
+		"-v","/var/run/docker.sock:/var/run/docker.sock",
+
+		// Uncomment the next line if you will be using a ptrace-based debugger like C++, Go, and Rust.
+		// "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
+
+		// Uncomment the next line to use a non-root user. See https://aka.ms/vscode-remote/containers/non-root-user.
+		"-u", "1000"
+	],
+
+	// Uncomment the next line if you want to publish any ports.
+	"appPort": [4000],
+	
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	// "settings":  { "workbench.colorTheme": "Feather" },
+
+	// Add the IDs of any extensions you want installed in the array below.
+	"extensions": [
+		"mjmcloug.vscode-elixir",
+		"benvp.vscode-hex-pm-intellisense",
+		"ms-azuretools.vscode-docker",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+	]
+}

@@ -1,4 +1,7 @@
-DEV_IMAGE ?= gcr.io/ox-registry-prod/ox-image-library/ox-devcontainer-elixir:1.10.3-1
+DEV_IMAGE ?= devcontainer-elixir:1.10.3-1
+
+devcontainer:
+	docker build -t $(DEV_IMAGE) -f .devcontainer/Dockerfile .devcontainer/
 
 shell:
 	docker run \

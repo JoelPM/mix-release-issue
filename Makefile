@@ -1,5 +1,7 @@
 DEV_IMAGE ?= devcontainer-elixir:1.10.3-1
 
+default: devcontainer shell
+
 devcontainer:
 	docker build -t $(DEV_IMAGE) -f .devcontainer/Dockerfile .devcontainer/
 
